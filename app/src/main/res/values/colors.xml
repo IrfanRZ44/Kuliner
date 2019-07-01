@@ -3,4 +3,17 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="green1">#ff52af44</color>
+    <color name="green2">#ff60da4e</color>
+    <color name="green3">#ff397630</color>
+    <color name="green4">#21ff00</color>
+    <color name="hitam">#ff000000</color>
+    <color name="hitamGray">#ff393939</color>
+    <color name="putih">#ffffffff</color>
+    <color name="putihGelap1">#ffdfdfdf</color>
+    <color name="putihGelap2">#ff858685</color>
+    <color name="red">#ffaf1212</color>
+
+    <color name="background">#dddddd</color>
 </resources>

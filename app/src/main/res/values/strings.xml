@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Kuliner</string>
+
+    <string name="splash">Selamat Datang di Kuliner Khas Indonesia</string>
+    <string name="btn_main1">Kuliner Khas Favorit Indonesia</string>
+    <string name="btn_main2">Kuliner Terdekat</string>
+    <string name="btn_main3">Cari Kuliner</string>
+    <string name="text_main">Main Menu</string>
+    <string name="text_sign_in">Masuk menu Admin? </string>
+    <string name="btn_sign_in">Sign In</string>
+
 </resources>
