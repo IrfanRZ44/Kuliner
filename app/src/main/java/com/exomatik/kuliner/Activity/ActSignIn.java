@@ -3,6 +3,7 @@ package com.exomatik.kuliner.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,6 @@ import com.exomatik.kuliner.R;
 public class ActSignIn extends AppCompatActivity {
     private EditText etPhone, etPassword;
     private Button btnSignIn;
-    private ProgressDialog progressDialog;
     private View v;
 
     @Override
@@ -42,18 +42,22 @@ public class ActSignIn extends AppCompatActivity {
 
         if (phone.isEmpty() || password.isEmpty()){
             if (phone.isEmpty()){
-//                etPhone.setError(getResources().getString(R.string.error_data_kosong));
+                etPhone.setError(getResources().getString(R.string.error_data_kosong));
             }
             if (password.isEmpty()){
-//                etPassword.setError(getResources().getString(R.string.error_data_kosong));
+                etPassword.setError(getResources().getString(R.string.error_data_kosong));
             }
         }
         else {
-            progressDialog = new ProgressDialog(ActSignIn.this);
-//            progressDialog.setMessage(getResources().getString(R.string.progress_title1));
-//            progressDialog.setTitle(getResources().getString(R.string.progress_text1));
-            progressDialog.setCancelable(false);
-            progressDialog.show();
+            if (phone.equals("Admin") && password.equals("123456")){
+                startActivity(new Intent(ActSignIn.this, ActMenuAdmin.class));
+                finish();
+            }
+            else {
+                Snackbar snackbar = Snackbar
+                        .make(v, "User dan Password salah", Snackbar.LENGTH_LONG);
+                snackbar.show();
+            }
         }
     }
 

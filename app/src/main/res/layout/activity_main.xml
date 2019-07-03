@@ -118,4 +118,18 @@
             android:fontFamily="roboto_regular"
             />
     </LinearLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:n3="http://schemas.android.com/apk/res-auto"
+        android:layout_width="50.0dip"
+        android:layout_height="50.0dip"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/margin_big"
+        android:layout_marginTop="190.0dip"
+        android:elevation="8dp"
+        android:src="@drawable/logo"
+        n3:civ_circle_background_color="@color/putih"
+        n3:civ_border_width="@dimen/margin_small"
+        n3:civ_border_color="@color/putih"
+        />
 </RelativeLayout>

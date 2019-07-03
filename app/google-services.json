@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "657446736195",
+    "firebase_url": "https://kuliner-e660b.firebaseio.com",
+    "project_id": "kuliner-e660b",
+    "storage_bucket": "kuliner-e660b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:657446736195:android:c7a8d23ef39c7b26",
+        "android_client_info": {
+          "package_name": "com.exomatik.kuliner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "657446736195-u5ri9oed1o4ecvst740cdvt8rnd57eo8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.exomatik.kuliner",
+            "certificate_hash": "6d09a41daf8e3ea3540b260ae1f4878b04cd8166"
+          }
+        },
+        {
+          "client_id": "657446736195-o4148kc4pt82nd4gd1p9ecsrcgihca5a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzUK3AQogj8CxxOkVrsW2bOC2putoIajw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "657446736195-o4148kc4pt82nd4gd1p9ecsrcgihca5a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

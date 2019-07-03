@@ -9,4 +9,14 @@
     <string name="text_sign_in">Masuk menu Admin? </string>
     <string name="btn_sign_in">Sign In</string>
 
+    <string name="progress_title1">Mohon Tunggu...</string>
+    <string name="progress_text1">Proses</string>
+
+    <string name="error_data_kosong">Data tidak boleh kosong!</string>
+    <string name="error_foto_kosong">Anda belum mengupload Foto</string>
+    <string name="error_latitude_kosong">Anda belum memilih lokasi di map!</string>
+
+    <string name="digit_nama">asdfghjklqwertyuiopzxcvbnmZXCVBNMASDFGHJKLQWERTYUIOP1234567890_ .,-</string>
+
+    <string name="google_maps_key">AIzaSyDTIvPOsKEL7z6wBmQak9ggvVcvwaWUmVQ</string>
 </resources>
