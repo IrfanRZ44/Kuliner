@@ -5,19 +5,25 @@ import android.graphics.Paint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.exomatik.kuliner.R;
 
 public class MainActivity extends AppCompatActivity {
     private TextView btnSignIn;
+    private RelativeLayout btn1, btn2, btn3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.act_main);
 
         btnSignIn = (TextView) findViewById(R.id.text_sign_in);
+        btn1 = (RelativeLayout) findViewById(R.id.btn_main1);
+        btn2 = (RelativeLayout) findViewById(R.id.btn_main2);
+        btn3 = (RelativeLayout) findViewById(R.id.btn_main3);
 
         btnSignIn.setPaintFlags(btnSignIn.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
@@ -26,6 +32,30 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 btnSignIn.setTextColor(getResources().getColor(R.color.green3));
                 startActivity(new Intent(MainActivity.this, ActSignIn.class));
+                finish();
+            }
+        });
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ActKulinerFavorit.class));
+                finish();
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ActKulinerTerdekat.class));
+                finish();
+            }
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ActKulinerCari.class));
                 finish();
             }
         });

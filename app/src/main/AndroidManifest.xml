@@ -26,10 +26,14 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".Activity.MainActivity" />
-        <activity android:name=".Activity.ActSignIn" />
-        <activity android:name=".Activity.ActMenuAdmin" />
+        <activity android:name=".Activity.MainActivity" ></activity>
+        <activity android:name=".Activity.ActSignIn" ></activity>
+        <activity android:name=".Activity.ActMenuAdmin" ></activity>
         <activity android:name=".Activity.ActFormTambah"></activity>
+        <activity android:name=".Activity.ActKulinerFavorit"></activity>
+        <activity android:name=".Activity.ActDetailKuliner"></activity>
+        <activity android:name=".Activity.ActKulinerCari"></activity>
+        <activity android:name=".Activity.ActKulinerTerdekat"></activity>
     </application>
 
 </manifest>

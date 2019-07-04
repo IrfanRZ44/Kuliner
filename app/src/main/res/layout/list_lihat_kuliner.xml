@@ -66,7 +66,12 @@
         android:textColor="@color/putihGelap3"
         android:textSize="@dimen/text_font"
         android:id="@+id/text_alamat"
+        android:textAlignment="textEnd"
+        android:gravity="end"
+        android:layout_marginTop="@dimen/margin_small"
         android:fontFamily="@font/roboto_regular"
+        android:layout_toRightOf="@+id/img_kuliner"
+        android:maxLines="2"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         />

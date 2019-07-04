@@ -23,22 +23,26 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import io.supercharge.shimmerlayout.ShimmerLayout;
+
 public class ActMenuAdmin extends AppCompatActivity implements ItemClickSupport.OnItemClickListener {
     private Button btnTambah;
     private RecyclerView rcKuliner;
     private TextView textNothing;
     private ImageView back;
     private ArrayList<ModelKuliner> listKuliner = new ArrayList<ModelKuliner>();
+    private ShimmerLayout shimmerLoad;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_act_menu_admin);
+        setContentView(R.layout.act_menu_admin);
 
         btnTambah = (Button) findViewById(R.id.btn_tambah);
         rcKuliner = (RecyclerView) findViewById(R.id.rc_kuliner);
         textNothing = (TextView) findViewById(R.id.text_nothing);
         back = (ImageView) findViewById(R.id.back);
+        shimmerLoad = (ShimmerLayout) findViewById(R.id.shimmer_load);
 
         getDataKuliner();
         ItemClickSupport.addTo(rcKuliner).setOnItemClickListener(this);
@@ -67,6 +71,9 @@ public class ActMenuAdmin extends AppCompatActivity implements ItemClickSupport.
     }
 
     private void getDataKuliner() {
+        shimmerLoad.startShimmerAnimation();
+        shimmerLoad.setVisibility(View.VISIBLE);
+        textNothing.setVisibility(View.GONE);
         FirebaseDatabase.getInstance()
                 .getReference("kuliner")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -90,9 +97,15 @@ public class ActMenuAdmin extends AppCompatActivity implements ItemClickSupport.
                         else {
                             textNothing.setVisibility(View.VISIBLE);
                         }
+                        shimmerLoad.stopShimmerAnimation();
+                        shimmerLoad.setVisibility(View.GONE);
                     }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
+                        shimmerLoad.stopShimmerAnimation();
+                        shimmerLoad.setVisibility(View.GONE);
+                        textNothing.setText("Error mengambil data");
+                        textNothing.setVisibility(View.VISIBLE);
                         Toast.makeText(ActMenuAdmin.this, "Gagal Mengambil Data Terbaru", Toast.LENGTH_SHORT).show();
                     }
                 });

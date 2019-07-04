@@ -31,12 +31,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -45,7 +41,6 @@ import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import id.zelory.compressor.Compressor;
@@ -72,7 +67,7 @@ public class ActFormTambah extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_act_form_tambah);
+        setContentView(R.layout.act_form_tambah);
 
         back = (ImageView) findViewById(R.id.back);
         imgKuliner = (CircleImageView) findViewById(R.id.img_user);
@@ -121,6 +116,7 @@ public class ActFormTambah extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dataKuliner = null;
                 startActivity(new Intent(ActFormTambah.this, MainActivity.class));
                 finish();
             }
@@ -144,7 +140,8 @@ public class ActFormTambah extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        startActivity(new Intent(ActFormTambah.this, MainActivity.class));
+        dataKuliner = null;
+        startActivity(new Intent(ActFormTambah.this, ActMenuAdmin.class));
         finish();
     }
 
@@ -344,6 +341,7 @@ public class ActFormTambah extends AppCompatActivity {
                         if (paramAnonymous2Task.isSuccessful()) {
                             progressDialog.dismiss();
                             Toast.makeText(ActFormTambah.this, "Berhasil Upload Data", Toast.LENGTH_LONG).show();
+                            dataKuliner = null;
                             startActivity(new Intent(ActFormTambah.this, ActMenuAdmin.class));
                             finish();
                         } else {
