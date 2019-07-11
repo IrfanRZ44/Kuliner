@@ -117,7 +117,7 @@ public class ActFormTambah extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dataKuliner = null;
-                startActivity(new Intent(ActFormTambah.this, MainActivity.class));
+                startActivity(new Intent(ActFormTambah.this, ActMenuAdmin.class));
                 finish();
             }
         });
@@ -125,6 +125,7 @@ public class ActFormTambah extends AppCompatActivity {
 
     private void setData() {
         if (dataKuliner != null) {
+            textTambah.setText("Edit Kuliner");
             Uri localUri = Uri.parse(dataKuliner.getFoto());
             Picasso.with(ActFormTambah.this).load(localUri).into(imgKuliner);
             etNama.setText(dataKuliner.getNama());
@@ -134,6 +135,7 @@ public class ActFormTambah extends AppCompatActivity {
             rbFavorit.setRating(dataKuliner.getFavorit());
             imgHapus.setVisibility(View.VISIBLE);
         } else {
+            textTambah.setText("Tambah Kuliner");
             imgKuliner.setImageResource(R.drawable.logo);
         }
     }

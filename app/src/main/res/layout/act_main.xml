@@ -7,21 +7,32 @@
     tools:context="com.exomatik.kuliner.Activity.MainActivity"
     android:background="@color/putihGelap1"
     >
-    <ImageView
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_Pager"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/navigation_drawer_width"
-        android:src="@drawable/bg_main"
-        android:scaleType="fitXY"
-        android:id="@+id/img_main"
-        />
+        android:layout_height="240dp">
+
+    </android.support.v4.view.ViewPager>
+
+    <me.relex.circleindicator.CircleIndicator
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignBottom="@+id/view_Pager"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="@dimen/width30">
+
+    </me.relex.circleindicator.CircleIndicator>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/img_main"
+        android:layout_below="@+id/view_Pager"
         android:background="@drawable/border_rl_white"
         android:layout_marginTop="-30dp"
         android:layout_marginLeft="@dimen/margin_standard"
         android:layout_marginRight="@dimen/margin_standard"
+        android:id="@+id/scroll"
         >
         <RelativeLayout
             android:layout_width="match_parent"
@@ -36,28 +47,21 @@
                 android:fontFamily="@font/roboto_regular"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/text_main"
-                android:layout_marginTop="@dimen/margin_big"
+                android:layout_marginTop="@dimen/margin_standard"
                 android:layout_marginBottom="@dimen/margin_standard"
                 />
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_centerHorizontal="true"
+                android:layout_height="@dimen/width80"
+                android:layout_toLeftOf="@+id/img_center"
                 android:id="@+id/btn_main1"
                 android:layout_below="@+id/text_main"
                 android:background="@drawable/border_round_full_green"
-                android:layout_marginTop="@dimen/margin_standard"
+                android:layout_marginTop="@dimen/margin_small"
                 android:layout_marginLeft="@dimen/margin_standard"
                 android:layout_marginRight="@dimen/margin_standard"
                 android:elevation="@dimen/margin_standard"
                 >
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_favorit_white"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/margin_small"
-                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -67,29 +71,40 @@
                     android:textStyle="bold"
                     android:fontFamily="@font/roboto_regular"
                     android:textAllCaps="false"
-                    android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
+                    android:textAlignment="center"
+                    android:layout_marginTop="@dimen/margin_standard"
+                    android:id="@+id/text1"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_favorit_white"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/margin_standard"
+                    android:layout_below="@+id/text1"
                     />
             </RelativeLayout>
+            <ImageView
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/img_center"
+                />
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_centerHorizontal="true"
+                android:layout_height="@dimen/width80"
                 android:id="@+id/btn_main2"
-                android:layout_below="@+id/btn_main1"
+                android:layout_toRightOf="@+id/img_center"
+                android:layout_below="@+id/text_main"
                 android:background="@drawable/border_round_full_green"
-                android:layout_marginTop="@dimen/margin_standard"
+                android:layout_marginTop="@dimen/margin_small"
                 android:layout_marginLeft="@dimen/margin_standard"
                 android:layout_marginRight="@dimen/margin_standard"
                 android:elevation="@dimen/margin_standard"
                 >
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_location_white"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/margin_small"
-                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -99,30 +114,37 @@
                     android:textStyle="bold"
                     android:fontFamily="@font/roboto_regular"
                     android:textAllCaps="false"
-                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/margin_standard"
                     android:layout_centerHorizontal="true"
+                    android:textAlignment="center"
+                    android:id="@+id/text2"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_location_white"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/margin_standard"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_below="@+id/text2"
                     />
             </RelativeLayout>
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/width80"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/btn_main3"
                 android:layout_below="@+id/btn_main2"
                 android:background="@drawable/border_round_full_green"
-                android:layout_marginTop="@dimen/margin_standard"
+                android:layout_marginTop="@dimen/margin_small"
                 android:layout_marginLeft="@dimen/margin_standard"
                 android:layout_marginRight="@dimen/margin_standard"
                 android:layout_marginBottom="@dimen/margin_big"
+                android:paddingLeft="@dimen/margin_big"
+                android:paddingRight="@dimen/margin_big"
                 android:elevation="@dimen/margin_standard"
                 >
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_cari_white"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/margin_small"
-                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -132,12 +154,52 @@
                     android:textStyle="bold"
                     android:fontFamily="@font/roboto_regular"
                     android:textAllCaps="false"
-                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/margin_standard"
                     android:layout_centerHorizontal="true"
+                    android:id="@+id/text3"
+                    />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_cari_white"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/text3"
+                    android:layout_marginLeft="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/margin_standard"
                     />
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Makanan"
+        android:textColor="@color/hitamGray"
+        android:textSize="@dimen/title_font"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_below="@+id/scroll"
+        android:id="@+id/text_makanan"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginLeft="@dimen/margin_big"
+        />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_makanan"
+        android:id="@+id/horizontal"
+        >
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rc_berita"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.NestedScrollView>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -145,6 +207,7 @@
         android:layout_centerHorizontal="true"
         android:orientation="horizontal"
         android:layout_marginBottom="@dimen/margin_big"
+        android:id="@+id/sign_in"
         >
 
         <TextView

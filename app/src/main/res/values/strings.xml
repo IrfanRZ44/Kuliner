@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">Kuliner</string>
+    <string name="app_name">Kuliner Makassar</string>
 
-    <string name="splash">Selamat Datang di Kuliner Khas Indonesia</string>
-    <string name="btn_main1">Kuliner Khas Favorit Indonesia</string>
-    <string name="btn_main2">Kuliner Terdekat</string>
-    <string name="btn_main3">Cari Kuliner</string>
+    <string name="splash">Selamat Datang di Kuliner Khas Makassar</string>
+    <string name="btn_main1">Kuliner Khas Favorit</string>
+    <string name="btn_main2">Kuliner Khas Terdekat</string>
+    <string name="btn_main3">Cari Kuliner Khas</string>
     <string name="text_main">Main Menu</string>
     <string name="text_sign_in">Masuk menu Admin? </string>
     <string name="btn_sign_in">Sign In</string>
@@ -17,6 +17,5 @@
     <string name="error_latitude_kosong">Anda belum memilih lokasi di map!</string>
 
     <string name="digit_nama">asdfghjklqwertyuiopzxcvbnmZXCVBNMASDFGHJKLQWERTYUIOP1234567890_ .,-</string>
-
     <string name="google_maps_key">AIzaSyDTIvPOsKEL7z6wBmQak9ggvVcvwaWUmVQ</string>
 </resources>

@@ -74,11 +74,14 @@ public class ActMenuAdmin extends AppCompatActivity implements ItemClickSupport.
         shimmerLoad.startShimmerAnimation();
         shimmerLoad.setVisibility(View.VISIBLE);
         textNothing.setVisibility(View.GONE);
+        rcKuliner.setVisibility(View.GONE);
+        btnTambah.setVisibility(View.GONE);
         FirebaseDatabase.getInstance()
                 .getReference("kuliner")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+                        btnTambah.setVisibility(View.VISIBLE);
                         if (dataSnapshot.exists()) {
                             Iterator localIterator = dataSnapshot.getChildren().iterator();
                             listKuliner.removeAll(listKuliner);
@@ -88,6 +91,9 @@ public class ActMenuAdmin extends AppCompatActivity implements ItemClickSupport.
                                 listKuliner.add(localDataUser);
                             }
 
+                            rcKuliner.setVisibility(View.VISIBLE);
+                            shimmerLoad.stopShimmerAnimation();
+                            shimmerLoad.setVisibility(View.GONE);
                             RecyclerLihatKuliner adapterLihatKelas = new RecyclerLihatKuliner(listKuliner);
                             LinearLayoutManager localLinearLayoutManager = new LinearLayoutManager(ActMenuAdmin.this, 1, false);
                             rcKuliner.setLayoutManager(localLinearLayoutManager);
@@ -96,12 +102,13 @@ public class ActMenuAdmin extends AppCompatActivity implements ItemClickSupport.
                         }
                         else {
                             textNothing.setVisibility(View.VISIBLE);
+                            shimmerLoad.stopShimmerAnimation();
+                            shimmerLoad.setVisibility(View.GONE);
                         }
-                        shimmerLoad.stopShimmerAnimation();
-                        shimmerLoad.setVisibility(View.GONE);
                     }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
+                        btnTambah.setVisibility(View.VISIBLE);
                         shimmerLoad.stopShimmerAnimation();
                         shimmerLoad.setVisibility(View.GONE);
                         textNothing.setText("Error mengambil data");
