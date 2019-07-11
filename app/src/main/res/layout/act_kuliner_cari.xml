@@ -32,15 +32,40 @@
             android:textColor="@color/hitamGray"
             android:textSize="@dimen/title_font"
             android:textStyle="bold" />
+        <RelativeLayout
+            android:id="@+id/rl_et_cari"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@+id/back"
+            android:layout_toLeftOf="@+id/img_cari"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            >
+
+            <EditText
+                android:id="@+id/et_cari"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:background="@drawable/border_et_gray"
+                android:hint="Nama Kuliner"
+                android:imeOptions="actionSearch"
+                android:maxLines="2"
+                android:paddingLeft="@dimen/margin_standard"
+                android:paddingRight="@dimen/width40"
+                android:textColor="@color/hitamGray"
+                android:textColorHint="@color/hitamGray"
+                android:textSize="@dimen/text_font" />
+        </RelativeLayout>
 
         <ImageView
-            android:id="@+id/btn_download"
-            android:layout_width="40dp"
+            android:id="@+id/img_cari"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/margin_small"
-            android:src="@drawable/logo" />
+            android:layout_marginRight="@dimen/margin_standard"
+            android:src="@drawable/ic_cari_black" />
     </RelativeLayout>
 
     <android.support.v4.widget.NestedScrollView
@@ -65,50 +90,20 @@
                 android:textColor="@color/hitam"
                 android:textSize="@dimen/title_font" />
 
-            <RelativeLayout
-                android:id="@+id/rl_et_cari"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_below="@+id/text_title"
-                android:layout_marginTop="@dimen/margin_big">
-
-                <EditText
-                    android:id="@+id/et_cari"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_centerVertical="true"
-                    android:background="@drawable/border_et_gray"
-                    android:hint="Nama Kuliner"
-                    android:imeOptions="actionSearch"
-                    android:maxLines="2"
-                    android:paddingLeft="@dimen/margin_big"
-                    android:paddingRight="@dimen/width40"
-                    android:textColor="@color/hitamGray"
-                    android:textColorHint="@color/hitamGray"
-                    android:textSize="@dimen/text_font" />
-
-                <ImageView
-                    android:id="@+id/img_cari"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/margin_standard"
-                    android:src="@drawable/ic_cari_black" />
-            </RelativeLayout>
-
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rc_kuliner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/rl_et_cari"
-                android:layout_marginTop="@dimen/margin_standard"></android.support.v7.widget.RecyclerView>
+                android:layout_below="@+id/text_title"
+                android:layout_marginTop="@dimen/margin_standard">
+
+            </android.support.v7.widget.RecyclerView>
 
             <TextView
                 android:id="@+id/text_nothing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/rl_et_cari"
+                android:layout_below="@+id/text_title"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/margin_big"
                 android:text="Belum ada data Kuliner"
@@ -121,7 +116,7 @@
                 android:id="@+id/shimmer_load"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/rl_et_cari"
+                android:layout_below="@+id/text_title"
                 android:layout_gravity="center_vertical"
                 android:layout_marginBottom="@dimen/margin_standard"
                 android:layout_marginLeft="@dimen/margin_small"

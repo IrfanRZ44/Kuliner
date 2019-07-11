@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,19 +32,23 @@ import io.supercharge.shimmerlayout.ShimmerLayout;
 
 public class ActKulinerCari extends AppCompatActivity implements ItemClickSupport.OnItemClickListener {
     private RecyclerView rcKuliner;
-    private TextView textNothing;
+    private TextView textNothing, textHeader;
+    private RelativeLayout rlCari;
     private ImageView back, btnCari;
     private ArrayList<ModelKuliner> listKuliner = new ArrayList<ModelKuliner>();
     private EditText etCari;
     private RecyclerLihatKuliner adapter;
     private ShimmerLayout shimmerLoad;
     private ProgressDialog progressDialog;
+    private boolean cari = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_kuliner_cari);
 
+        rlCari = (RelativeLayout) findViewById(R.id.rl_et_cari);
+        textHeader = (TextView) findViewById(R.id.text_title_anggota);
         rcKuliner = (RecyclerView) findViewById(R.id.rc_kuliner);
         textNothing = (TextView) findViewById(R.id.text_nothing);
         back = (ImageView) findViewById(R.id.back);
@@ -75,8 +80,15 @@ public class ActKulinerCari extends AppCompatActivity implements ItemClickSuppor
         btnCari.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String text = etCari.getText().toString();
-                getDataKuliner(text);
+                if (cari){
+                    String text = etCari.getText().toString();
+                    getDataKuliner(text);
+                }
+                else {
+                    textHeader.setVisibility(View.GONE);
+                    rlCari.setVisibility(View.VISIBLE);
+                    cari = true;
+                }
             }
         });
     }

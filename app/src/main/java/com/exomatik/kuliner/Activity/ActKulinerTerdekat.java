@@ -37,7 +37,7 @@ import io.supercharge.shimmerlayout.ShimmerLayout;
 public class ActKulinerTerdekat extends AppCompatActivity implements ItemClickSupport.OnItemClickListener, LocationListener {
     private RecyclerView rcKuliner;
     private TextView textNothing, textTitle;
-    private ImageView back;
+    private ImageView back, imgCari;
     private ArrayList<ModelKulinerTerdekat> listKuliner = new ArrayList<ModelKulinerTerdekat>();
     private LocationManager locationManager;
     private double latNow, lngNow;
@@ -46,8 +46,9 @@ public class ActKulinerTerdekat extends AppCompatActivity implements ItemClickSu
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.act_kuliner_favorit);
+        setContentView(R.layout.act_kuliner_terdekat);
 
+        imgCari = (ImageView) findViewById(R.id.img_cari);
         rcKuliner = (RecyclerView) findViewById(R.id.rc_kuliner);
         textNothing = (TextView) findViewById(R.id.text_nothing);
         textTitle = (TextView) findViewById(R.id.text_title_anggota);

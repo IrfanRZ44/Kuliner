@@ -83,6 +83,7 @@
         android:textColor="@color/hitamGray"
         android:textSize="@dimen/text_font"
         android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/img_user"
         android:layout_alignParentBottom="true"
         android:id="@+id/text_jarak"
         android:layout_marginRight="@dimen/margin_small"
