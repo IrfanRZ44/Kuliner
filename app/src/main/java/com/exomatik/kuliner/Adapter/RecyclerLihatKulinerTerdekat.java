@@ -37,7 +37,7 @@ public class RecyclerLihatKulinerTerdekat extends RecyclerView.Adapter<RecyclerL
         viewHolder.textNama.setText(dataList.get(position).getNama());
         viewHolder.textDesc.setText("Deskripsi : " + dataList.get(position).getDesc());
         viewHolder.textAlamat.setText("Alamat : " + dataList.get(position).getAlamat());
-        viewHolder.textJarak.setText("Jarak : " + dataList.get(position).getJarak() + " Km");
+        viewHolder.textJarak.setText("Jarak : " + dataList.get(position).getJarak().substring(0, 4) + " Km");
         viewHolder.rbFavorit.setRating(dataList.get(position).getFavorit());
         Uri localUri = Uri.parse(dataList.get(position).getFoto());
         Picasso.with(context).load(localUri).into(viewHolder.imgKuliner);
