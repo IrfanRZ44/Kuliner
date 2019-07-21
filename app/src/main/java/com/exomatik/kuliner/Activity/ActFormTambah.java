@@ -203,7 +203,7 @@ public class ActFormTambah extends AppCompatActivity {
         String desc = etDesc.getText().toString();
         String alamat = etAlamat.getText().toString();
 
-        if (nama.isEmpty() || desc.isEmpty() || alamat.isEmpty() || locationPoint == null || imageUri == null) {
+        if (nama.isEmpty() || desc.isEmpty() || alamat.isEmpty() || locationPoint == null || (dataKuliner == null && imageUri == null)) {
             if (nama.isEmpty()) {
                 etNama.setError(getResources().getString(R.string.error_data_kosong));
             }
@@ -267,7 +267,7 @@ public class ActFormTambah extends AppCompatActivity {
     }
 
     private void uploadMethod(ModelKuliner dataUploaded) {
-        if (dataUploaded.getFoto() == null) {
+        if (dataKuliner == null) {
             simpanFoto(dataUploaded, imageUri);
         } else {
             if (imageUri == null) {

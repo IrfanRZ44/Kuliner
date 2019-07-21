@@ -52,7 +52,9 @@ public class ActKulinerFavorit extends AppCompatActivity implements ItemClickSup
         etCari = (EditText) findViewById(R.id.et_cari);
         shimmerLoad = (ShimmerLayout) findViewById(R.id.shimmer_load);
 
+        //mengambil data dari realtime firebase
         getDataKuliner();
+
         ItemClickSupport.addTo(rcKuliner).setOnItemClickListener(this);
 
         btnCari.setOnClickListener(new View.OnClickListener() {
@@ -87,9 +89,26 @@ public class ActKulinerFavorit extends AppCompatActivity implements ItemClickSup
 
     private void getDataKuliner() {
         shimmerLoad.startShimmerAnimation();
+        //shimmer stop berarti menghentikan animasinya
         shimmerLoad.setVisibility(View.VISIBLE);
+        //tampilan apapun yang di set visibility gone,, menghilangkan tampilan
+        //tampilan apapun yang di set visibility visible,, menampilkan tampilan
         textNothing.setVisibility(View.GONE);
         rcKuliner.setVisibility(View.GONE);
+
+        FirebaseDatabase.getInstance().getReference("kuliner")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
         FirebaseDatabase.getInstance()
                 .getReference("kuliner")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -103,6 +122,9 @@ public class ActKulinerFavorit extends AppCompatActivity implements ItemClickSup
                             listKuliner = new ArrayList<ModelKuliner>();
                             while (localIterator.hasNext()) {
                                 ModelKuliner localDataUser = (ModelKuliner) ((DataSnapshot) localIterator.next()).getValue(ModelKuliner.class);
+
+                                //menyeleksi apakah variable favorit di data kuliner bernilai 5
+                                //jika benar variabel bernilai 5, maka data kuliner tersebut dimunculkan
                                 if (localDataUser.getFavorit() == 5){
                                     listKuliner.add(localDataUser);
                                     cek = false;

@@ -17,5 +17,6 @@
     <string name="error_latitude_kosong">Anda belum memilih lokasi di map!</string>
 
     <string name="digit_nama">asdfghjklqwertyuiopzxcvbnmZXCVBNMASDFGHJKLQWERTYUIOP1234567890_ .,-</string>
+    <string name="digit_et_nama">asdfghjklqwertyuiopzxcvbnmZXCVBNMASDFGHJKLQWERTYUIOP1234567890_ </string>
     <string name="google_maps_key">AIzaSyDTIvPOsKEL7z6wBmQak9ggvVcvwaWUmVQ</string>
 </resources>

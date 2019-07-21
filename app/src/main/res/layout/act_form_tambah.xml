@@ -118,7 +118,7 @@
             android:layout_below="@+id/text_edit_1"
             android:layout_toLeftOf="@+id/img_edit1"
             android:background="@android:color/transparent"
-            android:digits="@string/digit_nama"
+            android:digits="@string/digit_et_nama"
             android:hint="Nama"
             android:paddingLeft="@dimen/margin_standard"
             android:textColor="@color/hitam"

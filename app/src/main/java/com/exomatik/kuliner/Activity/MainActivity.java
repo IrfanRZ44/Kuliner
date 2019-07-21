@@ -44,9 +44,13 @@ public class MainActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.view_Pager);
         rcMakanan = (RecyclerView) findViewById(R.id.rc_berita);
 
+        //3 gambar iklan yang otomatis pindah
         setSwipe();
+
+        //3 kuliner khas makassar
         setMakanan();
 
+        //text sign in di berikan garis bawah
         btnSignIn.setPaintFlags(btnSignIn.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setMakanan() {
+        //memasukkan item kuliner khas ke dalam variabel
         listMakanan.add(new ModelBerita("Coto Makassar", "Coto makassar atau coto mangkasara adalah makanan tradisional Makassar, Sulawesi Selatan.[1] Makanan ini terbuat dari jeroan (isi perut) sapi yang direbus dalam waktu yang lama. Rebusan jeroan bercampur daging sapi ini kemudian diiris-iris lalu dibumbui dengan bumbu yang diracik secara khusus. Coto dihidangkan dalam mangkuk dan dinikmati dengan ketupat dan \"burasa\" atau yang biasa dikenal sebagai buras, yakni sejenis ketupat yang dibungkus daun pisang.\n" +
                 "\n" +
                 "Coto makassar diperkirakan telah ada semenjak masa Kerajaan Gowa di abad ke-16.[2][3] Dahulu hidangan coto bagian daging sapi sirloin dan tenderloin hanya disajikan untuk disantap oleh keluarga kerajaan. Sementara bagian jeroan disajikan untuk masyarakat kelas bawah atau abdi dalem pengikut kerajaan.\n" +
@@ -106,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         listMakanan.add(new ModelBerita("Es Pisang Ijo", "Pisang ijo atau Es pisang ijo, adalah sejenis makanan khas di Sulawesi Selatan, utamanya di kota Makassar yang terbuat dari bahan utama berupa pisang ijo. Pisang ijo berupa pisang yang dibalut dengan adonan tepung yang berwarna hijau dan cara memasaknya dengan mengkukus di sebuah dandang. Tepung berwarna dibuat dari tepung, air, pewarna hijau atau air daun suji dan air daun pandan.", R.drawable.bg3));
         listMakanan.add(new ModelBerita("Sarabba", "Sarabba merupakan salah satu kuliner khas di nusantara. Cita rasa yang ditawarkan cukup menggoda. Tak ayal salah satu jenis minuman ini paling banyak diburu oleh masyarakat Indonesia. Minuman dengan cita rasa berbeda memang cukup menarik. Rasa yang enak menjadi pelengkap tersendiri. Ini menjadi nilai plus ", R.drawable.bgminum1));
 
+        //menampilkan item kuliner ke recycler view
         RecyclerBerita adapterLihatKelas = new RecyclerBerita(listMakanan);
         LinearLayoutManager localLinearLayoutManager = new LinearLayoutManager(MainActivity.this, 0, false);
         rcMakanan.setLayoutManager(localLinearLayoutManager);
@@ -115,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onStart() {
+        //mengganti gambar iklan tiap 5 detik
         h.postDelayed(new Runnable() {
                           public void run() {
                               if (currentPage == adapter.getCount()) {

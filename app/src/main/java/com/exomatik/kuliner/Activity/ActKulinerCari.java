@@ -120,6 +120,9 @@ public class ActKulinerCari extends AppCompatActivity implements ItemClickSuppor
                             listKuliner = new ArrayList<ModelKuliner>();
                             while (localIterator.hasNext()) {
                                 ModelKuliner localDataUser = (ModelKuliner) ((DataSnapshot) localIterator.next()).getValue(ModelKuliner.class);
+
+                                //menyeleksi apakah nama kuliner di database mengandung text yang diketik
+                                //jika benar nama kuliner mengandung text yang diketik maka, data kuliner tersebut di munculkan
                                 if (localDataUser.getNama().contains(cari)) {
                                     Log.e("ada", localDataUser.getNama());
                                     listKuliner.add(localDataUser);

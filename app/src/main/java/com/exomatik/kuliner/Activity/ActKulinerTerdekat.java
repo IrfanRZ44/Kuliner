@@ -42,6 +42,7 @@ public class ActKulinerTerdekat extends AppCompatActivity implements ItemClickSu
     private LocationManager locationManager;
     private double latNow, lngNow;
     private ShimmerLayout shimmerLoad;
+    int jarakTerdekat = 3; //jarak kuliner terdekat dalam km
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,8 +102,9 @@ public class ActKulinerTerdekat extends AppCompatActivity implements ItemClickSu
                                 replace = replace.replace(")", "");
                                 String lat[] = replace.split(",");
 
-                                // if distance < 0.1 miles we take locations as equal
-                                if (distance(Double.parseDouble(lat[0]), Double.parseDouble(lat[1]), latNow, lngNow) < 5) {
+                                //menyeleksi apakah jarak antara lokasi hp skrng dengan jarak lokasi kuliner di database kurang dari jarak yang ditentukan
+                                //jika benar kurang dari jarak yang ditentukan maka data kuliner tersebut dimunculkan
+                                if (distance(Double.parseDouble(lat[0]), Double.parseDouble(lat[1]), latNow, lngNow) < jarakTerdekat) {
                                     listKuliner.add(new ModelKulinerTerdekat(localDataUser.getNama(), localDataUser.getDesc(),
                                             localDataUser.getAlamat(), localDataUser.getLocationPoint(), localDataUser.getFoto(),
                                             localDataUser.getId(), localDataUser.getFavorit(),

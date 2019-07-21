@@ -18,12 +18,16 @@ public class SplashScreen extends AppCompatActivity {
 
         loadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.avi);
 
+        //handler untuk menunggu selama 2 detik
         new Handler().postDelayed(new Runnable()
         {
             public void run()
             {
+
                 Intent localIntent = new Intent(SplashScreen.this, MainActivity.class);
+                //berpindah activity
                 startActivity(localIntent);
+                //menghentikan activity sekarang
                 finish();
             }
         }, 2000L);
