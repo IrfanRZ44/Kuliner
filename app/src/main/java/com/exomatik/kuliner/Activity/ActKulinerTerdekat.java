@@ -1,5 +1,6 @@
 package com.exomatik.kuliner.Activity;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -24,6 +25,9 @@ import com.exomatik.kuliner.Featured.ItemClickSupport;
 import com.exomatik.kuliner.Model.ModelKuliner;
 import com.exomatik.kuliner.Model.ModelKulinerTerdekat;
 import com.exomatik.kuliner.R;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -57,7 +61,7 @@ public class ActKulinerTerdekat extends AppCompatActivity implements ItemClickSu
         shimmerLoad = (ShimmerLayout) findViewById(R.id.shimmer_load);
 
         CheckPermission();
-        if (locationManager != null){
+        if (locationManager != null) {
             locationManager.removeUpdates(this);
             getLocation();
         }
@@ -168,9 +172,41 @@ public class ActKulinerTerdekat extends AppCompatActivity implements ItemClickSu
         try {
             locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 5000, 5, ActKulinerTerdekat.this);
+            getLokasi();
         } catch (SecurityException e) {
             e.printStackTrace();
         }
+    }
+
+    private void getLokasi() {
+        // GET CURRENT LOCATION
+        FusedLocationProviderClient mFusedLocation = LocationServices.getFusedLocationProviderClient(this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        mFusedLocation.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
+            @Override
+            public void onSuccess(Location location) {
+                if (location != null) {
+                    // Do it all with location
+                    Log.d("My Current location", "Lat : " + location.getLatitude() + " Long : " + location.getLongitude());
+                    latNow = location.getLatitude();
+                    lngNow = location.getLongitude();
+                    getDataKuliner();
+                    // Display in Toast
+//                    Toast.makeText(MainActivity.this,
+//                            "Lat : " + location.getLatitude() + " Long : " + location.getLongitude(),
+//                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     public void CheckPermission() {
