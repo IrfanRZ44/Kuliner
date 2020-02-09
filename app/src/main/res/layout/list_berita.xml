@@ -43,6 +43,7 @@
         android:maxLines="3"
         android:lines="3"
         android:fontFamily="@font/roboto_regular"
+
         />
 
 </RelativeLayout>
